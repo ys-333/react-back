@@ -23,7 +23,6 @@ const Form = (props) => {
   }
 
   const inputChangeHandler = (event) => {
-    console.log(event.target.value)
     setInput(event.target.value)
   }
 
