@@ -10,6 +10,7 @@ const Form = (props) => {
   }, [])
 
   const submitHandler = (e) => {
+    console.log('hello');
     e.preventDefault()
 
     const temp = {
