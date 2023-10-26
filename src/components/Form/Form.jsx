@@ -10,7 +10,6 @@ const Form = (props) => {
   }, [])
 
   const submitHandler = (e) => {
-    console.log('hello');
     e.preventDefault()
 
     const temp = {
@@ -21,6 +20,7 @@ const Form = (props) => {
     const data = [...fakeData, temp]
 
     props.getData(data)
+    setInput("")
   }
 
   const inputChangeHandler = (event) => {
