@@ -1,13 +1,14 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
+import Card from './Card'
 
-const Task = (props) => {
+const Task = ({ goalData, editSaveData }) => {
   const [data, setData] = useState([])
 
   useEffect(() => {
     console.log('data change')
-    setData(props.data)
-  }, [props.data])
+    setData(goalData)
+  }, [goalData])
 
   const deleteHandler = (id) => {
     const newData = data.filter((d) => d.id != id)
@@ -17,23 +18,11 @@ const Task = (props) => {
     <ul className="task">
       {data.map((d) => {
         return (
-          <div
-            key={d.id}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            <li
-              onClick={() => {
-                deleteHandler(d.id)
-              }}
-            >
-              {d.value}
-            </li>
-            <i style={{ cursor: 'pointer' }}>edit</i>
-          </div>
+          <Card
+            d={d}
+            editSaveData={editSaveData}
+            deleteHandler={deleteHandler}
+          />
         )
       })}
     </ul>

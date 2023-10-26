@@ -12,6 +12,8 @@ const Form = (props) => {
   const submitHandler = (e) => {
     e.preventDefault()
 
+    if (input.length === 0) return
+
     const temp = {
       id: Math.floor(Math.random() * 100),
       value: input,
@@ -20,7 +22,7 @@ const Form = (props) => {
     const data = [...fakeData, temp]
 
     props.getData(data)
-    setInput("")
+    setInput('')
   }
 
   const inputChangeHandler = (event) => {
