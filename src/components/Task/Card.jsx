@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const Card = ({ d, deleteHandler, editSaveData }) => {
+const Card = ({ d, editSaveData, deleteHandler, loading }) => {
   const [edit, setEdit] = useState(false)
   const [inputValue, setInputValue] = useState(d.value)
 

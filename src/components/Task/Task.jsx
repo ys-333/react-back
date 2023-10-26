@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import Card from './Card'
 
-const Task = ({ goalData, editSaveData }) => {
+const Task = ({ goalData, editSaveData, loading }) => {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const Task = ({ goalData, editSaveData }) => {
             d={d}
             editSaveData={editSaveData}
             deleteHandler={deleteHandler}
+            loading={loading}
           />
         )
       })}

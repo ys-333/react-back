@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-
+import { v4 as uuid } from 'uuid'
 import { fakeData } from '../../assets/data'
 
 const Form = (props) => {
   const [input, setInput] = useState('')
 
   useEffect(() => {
-    props.getData(fakeData)
+    props.getData([])
   }, [])
 
   const submitHandler = (e) => {
@@ -14,12 +14,14 @@ const Form = (props) => {
 
     if (input.length === 0) return
 
+    const id = uuid()
+
     const temp = {
-      id: Math.floor(Math.random() * 100),
+      id,
       value: input,
     }
 
-    const data = [...fakeData, temp]
+    const data = [temp]
 
     props.getData(data)
     setInput('')

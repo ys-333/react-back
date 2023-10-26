@@ -5,9 +5,13 @@ import './App.css'
 
 function App() {
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const getData = (data) => {
+    setLoading(true)
+    console.log(data)
     setData(data)
+    setLoading(false)
   }
   const editSaveData = (task) => {
     console.log(task)
@@ -29,7 +33,7 @@ function App() {
       <h1>Task manager</h1>
       <Form getData={getData} />
       <h2>Display all goals</h2>
-      <Task goalData={data} editSaveData={editSaveData} />
+      <Task goalData={data} editSaveData={editSaveData} loading={loading} />
     </div>
   )
 }
